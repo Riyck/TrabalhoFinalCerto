@@ -3,6 +3,7 @@ import pool from "./database/dbConfig";
 
 const PORT = process.env.PORT || 3001;
 
+
 const startServer = async () => {
   try {
     await pool.connect();
@@ -16,3 +17,4 @@ const startServer = async () => {
 };
 
 startServer();
+

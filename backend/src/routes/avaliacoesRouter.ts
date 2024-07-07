@@ -52,4 +52,20 @@ avaliacoesRouter.get('/', async (req: Request, res: Response) => {
     }
   });
 
+  avaliacoesRouter.put('/:id', async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { nota1, nota2, nota3, nota4, nota5 } = req.body;
+  
+    try {
+      const result = await pool.query(
+        'UPDATE avaliacoes SET nota1 = $1, nota2 = $2, nota3 = $3, nota4 = $4, nota5 = $5 WHERE id = $6 RETURNING *',
+        [nota1, nota2, nota3, nota4, nota5, id]
+      );
+      res.json(result.rows[0]);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Erro ao atualizar a avaliação');
+    }
+  });
+
 export default avaliacoesRouter;

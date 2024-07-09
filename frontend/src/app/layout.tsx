@@ -37,7 +37,7 @@ const Header = () => {
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-4 fixed bottom-0 w-full">
-      <div className="container mx-auto text-center">@The Best Sistemas</div>
+      <div className="container mx-auto text-center">@schmidt Company</div>
     </footer>
   );
 };

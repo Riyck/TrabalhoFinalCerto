@@ -1,7 +1,8 @@
 {
   "/not-found": "app/not-found.js",
-  "/avaliarEquipe/page": "app/avaliarEquipe/page.js",
   "/page": "app/page.js",
   "/cadastrarEquipe/page": "app/cadastrarEquipe/page.js",
-  "/cadastrarAvaliador/page": "app/cadastrarAvaliador/page.js"
+  "/avaliarEquipe/page": "app/avaliarEquipe/page.js",
+  "/cadastrarAvaliador/page": "app/cadastrarAvaliador/page.js",
+  "/avaliacoesEquipes/page": "app/avaliacoesEquipes/page.js"
 }

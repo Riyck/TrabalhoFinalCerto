@@ -9,7 +9,7 @@ interface FormData {
   senha: string;
 }
 
-// Função para lidar com o envio do formulário
+
 const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
   event.preventDefault();
   const formData = new FormData(event.currentTarget);
@@ -21,14 +21,14 @@ const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
   try {
     await axios.post('http://localhost:3001/api/avaliadores', { nome, login, senha });
     alert('Avaliador cadastrado com sucesso!');
-    // Redirecionamento ou lógica adicional após o sucesso
+   
   } catch (error) {
     console.error('Erro ao cadastrar avaliador:', error);
     alert('Erro ao cadastrar avaliador');
   }
 };
 
-// Componente que renderiza o formulário
+
 const CadastrarAvaliador: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center my-8">
@@ -37,7 +37,7 @@ const CadastrarAvaliador: React.FC = () => {
         onSubmit={handleSubmit}
       >
         <div className="flex flex-col gap-3 items-center justify-center w-[97%]">
-          <label htmlFor="nome">Nome:</label>
+          <label htmlFor="nome">Nome do Avaliador:</label>
           <input
             type="text"
             id="nome"

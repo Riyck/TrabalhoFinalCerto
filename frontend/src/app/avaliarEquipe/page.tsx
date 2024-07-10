@@ -14,25 +14,25 @@ const AvaliarEquipe: React.FC = () => {
   const [nota5, setNota5] = useState<number | undefined>(undefined);
   const [avaliadores, setAvaliadores] = useState<{ id: string; nome: string }[]>([]);
   const [equipes, setEquipes] = useState<{ id: string; nome: string }[]>([]);
-  const [avaliadorFocus, setAvaliadorFocus] = useState(false); // Estado para controlar o foco no select de avaliadores
+  const [avaliadorFocus, setAvaliadorFocus] = useState(false);
 
   useEffect(() => {
-    // Função para buscar avaliadores do backend
+    
     const fetchAvaliadores = async () => {
       try {
         const response = await axios.get('http://localhost:3001/api/avaliadores');
-        setAvaliadores(response.data); // Assume que o backend retorna um array de avaliadores
+        setAvaliadores(response.data);
       } catch (error) {
         console.error('Erro ao buscar avaliadores:', error);
         alert('Erro ao buscar avaliadores');
       }
     };
 
-    // Função para buscar equipes do backend
+    
     const fetchEquipes = async () => {
       try {
         const response = await axios.get('http://localhost:3001/api/equipes');
-        setEquipes(response.data); // Assume que o backend retorna um array de equipes
+        setEquipes(response.data);
       } catch (error) {
         console.error('Erro ao buscar equipes:', error);
         alert('Erro ao buscar equipes');
@@ -41,7 +41,7 @@ const AvaliarEquipe: React.FC = () => {
 
     fetchAvaliadores();
     fetchEquipes();
-  }, []); // Executa apenas uma vez, após a montagem inicial do componente
+  }, []);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -57,7 +57,6 @@ const AvaliarEquipe: React.FC = () => {
         nota5,
       });
       alert('Notas atribuídas com sucesso!');
-      // Limpar os estados após o sucesso, se necessário
       setIdAvaliador('');
       setIdEquipe('');
       setNota1(undefined);
@@ -140,7 +139,6 @@ const AvaliarEquipe: React.FC = () => {
             ))}
           </select>
         </div>
-
         <div className="flex flex-col">
           <label htmlFor="id_equipe" className="font-semibold mb-1 text-green-600">
             Equipe:
@@ -166,7 +164,7 @@ const AvaliarEquipe: React.FC = () => {
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col">
             <label htmlFor="nota1" className="font-semibold mb-1 text-purple-600">
-              Nota 1:
+              Originalidade do Projeto:
             </label>
             <input
               type="number"
@@ -180,7 +178,7 @@ const AvaliarEquipe: React.FC = () => {
           </div>
           <div className="flex flex-col">
             <label htmlFor="nota2" className="font-semibold mb-1 text-yellow-600">
-              Nota 2:
+              Impacto Potencial:
             </label>
             <input
               type="number"
@@ -194,7 +192,7 @@ const AvaliarEquipe: React.FC = () => {
           </div>
           <div className="flex flex-col">
             <label htmlFor="nota3" className="font-semibold mb-1 text-red-600">
-              Nota 3:
+              Execução Técnica:
             </label>
             <input
               type="number"
@@ -208,7 +206,7 @@ const AvaliarEquipe: React.FC = () => {
           </div>
           <div className="flex flex-col">
             <label htmlFor="nota4" className="font-semibold mb-1 text-indigo-600">
-              Nota 4:
+              Apresenação e Demonstração:
             </label>
             <input
               type="number"
@@ -222,7 +220,7 @@ const AvaliarEquipe: React.FC = () => {
           </div>
           <div className="flex flex-col">
             <label htmlFor="nota5" className="font-semibold mb-1 text-gray-600">
-              Nota 5:
+              Viabilidade e Sustentabilidade:
             </label>
             <input
               type="number"
